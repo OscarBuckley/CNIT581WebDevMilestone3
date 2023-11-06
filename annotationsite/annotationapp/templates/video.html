@@ -1,0 +1,35 @@
+{% extends "base1.html" %}
+<!--comment-->
+{% load static %} {% block centerFeed %}
+<!--Placeholder Video 1-->
+<iframe width="900" height="600" src="https://www.youtube.com/embed/zCO7p_Ov_9w"> </iframe>
+<h3>Ethan Ralph Is Riding The Felted Express To Copesville</h3>
+<div class="metadata">
+  <img src="{% static 'images/profile.png' %}" id="uploaderPic" alt="uploader" />
+  <div class="accDesc">
+    <h5>Dakka Dakka</h5>
+    <h6>4.2k Subscribers</h6>
+  </div>
+  <button id="subscribebtn">Subscribe</button>
+</div>
+{% endblock %} {% block rightnav %}
+<div class="rightnav">
+  <ul id="rightmenu">
+    <li id="chatReplay">Chat Replay</li>
+    <li id="dropdown">
+      Annotations
+      <ul id="dropdownMenu">
+        <li id="allAnnotations"><a href="#">All Annotations</a></li>
+        <li id="liveAnnotations"><a href="#">Live Annotations</a></li>
+        <li id="addAnnotations"><a href="{% url 'addAnnotation' %}">Add Annotations</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div id="panel">
+    <h4><b>Chat Replay:</b></h4>
+    {% for key, value in chats.items %}
+    <p>{{ value }}</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
